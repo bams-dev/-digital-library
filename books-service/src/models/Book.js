@@ -1,29 +1,28 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/database");
 
-const sequelize = require('../config/database');
-
-const Book = sequelize.define('Book', {
-
+const Book = sequelize.define("Book", {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
   title: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
-
   author: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
-
   isbn: {
     type: DataTypes.STRING,
-    unique: true
+    allowNull: true, // ✅ IMPORTANT
   },
-
   available: {
     type: DataTypes.BOOLEAN,
-    defaultValue: true
-  }
-
+    defaultValue: true, // ✅ IMPORTANT
+  },
 });
 
 module.exports = Book;
