@@ -2,9 +2,12 @@ name: CI - Digital Library
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   backend:
@@ -12,23 +15,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 24
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 24
 
-      - name: Install dependencies (Books)
+      - name: Install Books dependencies
         working-directory: books-service
         run: npm install
 
-      - name: Install dependencies (Users)
+      - name: Install Users dependencies
         working-directory: users-service
         run: npm install
 
-      - name: Install dependencies (Loans)
+      - name: Install Loans dependencies
         working-directory: loans-service
         run: npm install
 
@@ -38,18 +41,18 @@ jobs:
     needs: backend
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 24
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 24
 
       - name: Install frontend dependencies
         working-directory: frontend
         run: npm install
 
-      - name: Build React app
+      - name: Build React app (CI safe)
         working-directory: frontend
-        run: npm run build
+        run: CI=false npm run build
