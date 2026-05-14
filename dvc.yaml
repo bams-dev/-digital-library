@@ -1,25 +1,24 @@
 stages:
-
   preprocess:
-    cmd: python preprocess.py
+    cmd: python recommendation-service/src/preprocess.py
     deps:
-      - preprocess.py
-      - data/loans.csv
+      - recommendation-service/data/loans.csv
+      - recommendation-service/src/preprocess.py
     outs:
-      - data/loans_clean.csv
+      - recommendation-service/data/loans_clean.csv
 
   train:
-    cmd: python train.py
+    cmd: python recommendation-service/src/train.py
     deps:
-      - train.py
-      - data/loans_clean.csv
+      - recommendation-service/data/loans_clean.csv
+      - recommendation-service/src/train.py
     outs:
-      - model/model.pkl
+      - recommendation-service/model/model.pkl
 
   evaluate:
-    cmd: python evaluate.py
+    cmd: python recommendation-service/src/evaluate.py
     deps:
-      - evaluate.py
-      - model/model.pkl
+      - recommendation-service/model/model.pkl
+      - recommendation-service/src/evaluate.py
     metrics:
-      - metrics.json
+      - recommendation-service/model/metrics.json
