@@ -26,5 +26,16 @@ services:
     ports:
       - "5002:5002"
 
+  loans:
+    build: ./loans-service
+    container_name: loans_service
+    restart: always
+    depends_on:
+      - postgres
+    env_file:
+      - ./loans-service/.env
+    ports:
+      - "5003:5003"
+
 volumes:
   postgres_data:
