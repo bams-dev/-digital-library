@@ -1,6 +1,6 @@
 # 📚 Digital Library
 
-## 🚀 Présentation du projet
+##  Présentation du projet
 
 Digital Library est une application complète de gestion de bibliothèque basée sur une architecture microservices. Elle permet :
 * La gestion des livres (CRUD)
@@ -13,7 +13,7 @@ Le projet intègre des pratiques professionnelles : Docker, GitHub Actions (CI/C
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 Architecture microservices conteneurisée :
 
@@ -36,7 +36,7 @@ API Gateway (Docker Compose)
 
 ---
 
-## 🧰 Technologies utilisées
+##  Technologies utilisées
 
 ### Backend
 * Node.js (Express)
@@ -60,7 +60,7 @@ API Gateway (Docker Compose)
 
 ---
 
-## ⚙️ Installation locale
+##  Installation locale
 
 ### Prérequis
 * Node.js ≥ 18
@@ -75,7 +75,7 @@ cd digital-library
 
 ---
 
-## 🐳 Lancement avec Docker Compose
+##  Lancement avec Docker Compose
 
 ```bash
 docker compose up --build
@@ -93,7 +93,7 @@ docker compose up --build
 
 ---
 
-## 🔀 Git Workflow
+##  Git Workflow
 
 * `main` : branche stable
 * `feature/*` : développement par fonctionnalité
@@ -108,7 +108,7 @@ git merge feature/frontend
 
 ---
 
-## 📊 DVC Workflow (Machine Learning)
+##  DVC Workflow (Machine Learning)
 
 Les datasets sont versionnés avec DVC. Le pipeline ML comprend :
 * Preprocessing
@@ -123,7 +123,7 @@ dvc metrics show
 
 ---
 
-## 🔌 API Endpoints
+##  API Endpoints
 
 ### Books Service
 
@@ -146,16 +146,16 @@ dvc metrics show
 
 ---
 
-## 🖼️ Captures d’écran
+##  Captures d’écran
 
-*📌 Dossiers `/docs/screenshots`*
+* Dossiers `/docs/screenshots`*
 * Interface React (liste des livres)
 * Formulaire d’ajout de livre
 * GitHub Actions (pipeline vert ✅)
 
 ---
 
-## 🤖 Pipeline CI/CD (GitHub Actions)
+##  Pipeline CI/CD (GitHub Actions)
 
 Un pipeline CI/CD est configuré via GitHub Actions :
 * Installation des dépendances backend
@@ -167,7 +167,7 @@ Un pipeline CI/CD est configuré via GitHub Actions :
 
 ---
 
-## ✅ État du projet
+##  État du projet
 
 * [x] Backend fonctionnel
 * [x] Frontend opérationnel
@@ -177,13 +177,12 @@ Un pipeline CI/CD est configuré via GitHub Actions :
 
 ---
 
-## 👨‍🎓 Auteur
+##  Auteur
 
 * **BAMBA INZA, Master 2 IA
 * **Institution** — Dakar Institute of Technology
 
 ---
 
-## 📄 Licence
-
+##  Licence
 Projet à usage pédagogique.
