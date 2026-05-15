@@ -1,251 +1,189 @@
-📚 Digital Library - Exam versioning
+# 📚 Digital Library
 
-# Présentation du projet 
+## 🚀 Présentation du projet
 
-Digital Library est une application complète de gestion de bibliothèque basée sur une architecture microservices. Elle permet : 
+Digital Library est une application complète de gestion de bibliothèque basée sur une architecture microservices. Elle permet :
+* La gestion des livres (CRUD)
+* La gestion des utilisateurs
+* La gestion des emprunts
+* Un système de recommandation basé sur le Machine Learning
+* Une interface utilisateur moderne développée en React
 
-la gestion des livres (CRUD) 
+Le projet intègre des pratiques professionnelles : Docker, GitHub Actions (CI/CD), DVC, et un workflow Git structuré.
 
-la gestion des utilisateurs 
+---
 
-la gestion des emprunts 
+## 🏗️ Architecture
 
-un système de recommandation basé sur le Machine Learning 
+Architecture microservices conteneurisée :
 
-une interface utilisateur moderne développée en React 
+```text
+Frontend (React)
+    │
+    ▼
+API Gateway (Docker Compose)
+    │
+    ├── Books Service (Node.js + Express)
+    ├── Users Service (Node.js + Express)
+    ├── Loans Service (Node.js + Express)
+    ├── Recommendation Service (ML + Python)
+    └── PostgreSQL
+```
 
-Le projet intègre des pratiques professionnelles : Docker, GitHub Actions (CI/CD), DVC, et un workflow Git structuré. 
+* Chaque service est indépendant
+* Communication via API REST
+* Orchestration via Docker Compose
 
- 
+---
 
-#  Architecture 
+## 🧰 Technologies utilisées
 
-Architecture microservices conteneurisée : 
+### Backend
+* Node.js (Express)
+* Sequelize ORM
+* PostgreSQL
 
-1     Frontend (React) 
+### Frontend
+* React (Create React App)
+* Axios
 
-2          │ 
+### Machine Learning
+* Python
+* Pandas
+* Scikit-learn
+* DVC (Data Version Control)
 
-3          ▼ 
+### DevOps
+* Docker & Docker Compose
+* Git & GitHub
+* GitHub Actions (CI/CD)
 
-4     API Gateway (Docker Compose) 
+---
 
-5          │ 
+## ⚙️ Installation locale
 
-6          ├── Books Service (Node.js + Express) 
+### Prérequis
+* Node.js ≥ 18
+* Docker & Docker Compose
+* Python ≥ 3.10
 
-7          ├── Users Service (Node.js + Express) 
+### Cloner le projet
+```bash
+git clone https://github.com/<username>/digital-library.git
+cd digital-library
+```
 
-8          ├── Loans Service (Node.js + Express) 
+---
 
-9          ├── Recommendation Service (ML + Python) 
+## 🐳 Lancement avec Docker Compose
 
-10          └── PostgreSQL 
+```bash
+docker compose up --build
+```
 
-Chaque service est indépendant 
+### Services exposés :
 
-Communication via API REST 
 
-Orchestration via Docker Compose 
+| Service | URL |
+| :--- | :--- |
+| **Frontend** | http://localhost:3000 |
+| **Books API** | http://localhost:5001 |
+| **Users API** | http://localhost:5002 |
+| **Loans API** | http://localhost:5003 |
 
- 
-#  Technologies utilisées 
+---
 
-Backend 
+## 🔀 Git Workflow
 
-Node.js (Express) 
+* `main` : branche stable
+* `feature/*` : développement par fonctionnalité
 
-Sequelize ORM 
+### Exemple :
+```bash
+git checkout -b feature/frontend
+git commit -m "feat: add frontend UI"
+git checkout main
+git merge feature/frontend
+```
 
-PostgreSQL 
+---
 
-Frontend 
+## 📊 DVC Workflow (Machine Learning)
 
-React (Create React App) 
+Les datasets sont versionnés avec DVC. Le pipeline ML comprend :
+* Preprocessing
+* Entraînement
+* Évaluation
 
-Axios 
+### Commandes principales :
+```bash
+dvc repro
+dvc metrics show
+```
 
-Machine Learning 
+---
 
-Python 
+## 🔌 API Endpoints
 
-Pandas 
+### Books Service
 
-Scikit-learn 
+| Méthode | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/books` | Liste des livres |
+| `POST` | `/books` | Ajouter un livre |
 
-DVC (Data Version Control) 
+### Users Service
 
-DevOps 
+| Méthode | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/users` | Liste des utilisateurs |
 
-Docker & Docker Compose 
+### Loans Service
 
-Git & GitHub 
+| Méthode | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/loans` | Liste des emprunts |
 
-GitHub Actions (CI/CD) 
+---
 
- 
-# Installation locale 
+## 🖼️ Captures d’écran
 
-Prérequis 
+*📌 Dossiers `/docs/screenshots`*
+* Interface React (liste des livres)
+* Formulaire d’ajout de livre
+* GitHub Actions (pipeline vert ✅)
 
-Node.js ≥ 18 
+---
 
-Docker & Docker Compose 
+## 🤖 Pipeline CI/CD (GitHub Actions)
 
-Python ≥ 3.10 
+Un pipeline CI/CD est configuré via GitHub Actions :
+* Installation des dépendances backend
+* Build du frontend React
+* Déclenchement automatique à chaque push ou pull request
 
-Cloner le projet 
+**Fichier de configuration :** `.github/workflows/ci.yml`  
+**Statut attendu :** ✅ SUCCESS
 
-1     git clone https://github.com/bams-dev/-digital-library.git
+---
 
-2     cd digital-library 
+## ✅ État du projet
 
- 
+* [x] Backend fonctionnel
+* [x] Frontend opérationnel
+* [x] Machine Learning intégré
+* [x] DVC configuré
+* [x] CI/CD validé
 
-# Lancement avec Docker Compose 
+---
 
-1     docker compose up --build 
+## 👨‍🎓 Auteur
 
-Services exposés : 
+* **BAMBA INZA, Master 2 IA
+* **Institution** — Dakar Institute of Technology
 
-Service 
+---
 
-URL 
+## 📄 Licence
 
-Frontend 
-
-http://localhost:3000 
-
-Books API 
-
-http://localhost:5001 
-
-Users API 
-
-http://localhost:5002 
-
-Loans API 
-
-http://localhost:5003 
-
- 
-
-# Git Workflow 
-
-main : branche stable 
-
-feature/* : développement par fonctionnalité 
-
-Exemple : 
-
-1     git checkout -b feature/frontend 
-
-2     git commit -m "feat: add frontend UI" 
-
-3     git merge feature/frontend 
-
- 
-
-# DVC Workflow (Machine Learning) 
-
-Les datasets sont versionnés avec DVC 
-
-Le pipeline ML comprend : 
-
-preprocessing 
-
-entraînement 
-
-évaluation 
-
-Commandes principales : 
-
-1     dvc repro 
-
-2     dvc metrics show 
-
- 
-
-# API Endpoints 
-
-Books Service 
-
-Méthode 
-
-Endpoint 
-
-Description 
-
-GET 
-
-/books 
-
-Liste des livres 
-
-POST 
-
-/books 
-
-Ajouter un livre 
-
-Users Service 
-
-| GET | /users | Liste des utilisateurs | 
-
-Loans Service 
-
-| GET | /loans | Liste des emprunts | 
-
- 
-
-# Captures d’écran 
-
-- À ajouter dans le dossier /docs/screenshots 
-
-Interface React (liste des livres) 
-
-Formulaire d’ajout de livre 
-
-GitHub Actions (pipeline vert ) 
-
- 
-
-- Pipeline CI/CD (GitHub Actions) 
-
-Un pipeline CI/CD est configuré via GitHub Actions : 
-
-Installation des dépendances backend 
-
-Build du frontend React 
-
-Déclenchement automatique à chaque push ou pull request 
-
-Fichier : 
-
-1     .github/workflows/ci.yml 
-
-Statut attendu :  SUCCESS 
-
- 
-
-# État du projet 
-
-✔ Backend fonctionnel 
-
-✔ Frontend opérationnel 
-
-✔ Machine Learning intégré 
-
-✔ DVC configuré 
-
-✔ CI/CD validé 
-
- 
-
-# Auteur 
-
-BAMBA INZA, Master 2 IA 
-Dakar Institute of Technology 
-
-# Licence 
-Projet à usage pédagogique. 
+Projet à usage pédagogique.
