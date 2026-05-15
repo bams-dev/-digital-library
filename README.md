@@ -151,7 +151,7 @@ dvc metrics show
 * Dossiers `/docs/screenshots`*
 * Interface React (liste des livres)
 * Formulaire d’ajout de livre
-* GitHub Actions (pipeline vert ✅)
+* GitHub Actions (pipeline vert )
 
 ---
 
@@ -163,7 +163,7 @@ Un pipeline CI/CD est configuré via GitHub Actions :
 * Déclenchement automatique à chaque push ou pull request
 
 **Fichier de configuration :** `.github/workflows/ci.yml`  
-**Statut attendu :** ✅ SUCCESS
+**Statut attendu :**  SUCCESS
 
 ---
 
